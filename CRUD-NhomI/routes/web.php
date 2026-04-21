@@ -1,9 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CrudUserController;
 
+// ==========================================
+// 1. TRANG CHỦ
+// ==========================================
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// Route để hiện trang đăng nhập
+// ==========================================
+// 2. XÁC THỰC (ĐĂNG NHẬP & QUÊN MẬT KHẨU)
+// ==========================================
 Route::get('/login', function () {
     return view('login');
 });
