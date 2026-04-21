@@ -16,13 +16,29 @@ Route::get('/', function () {
 // ==========================================
 Route::get('/login', function () {
     return view('login');
-});
+})->name('login'); // Đặt tên route để Laravel dễ redirect khi cần
 
-// Route để xử lý khi nhấn nút Đăng nhập (POST)
-Route::post('/login', [App\Http\Controllers\AuthController::class, 'login']);
-Route::get('/register', function () {
-    return view('register');
-});
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/forgot-password', function () {
+    return view('forgot-password');
+})->name('password.request');
+
+// ==========================================
+// 3. ĐĂNG KÝ (Sử dụng CrudUserController)
+// ==========================================
+// Trỏ GET /register vào hàm create() để hiển thị form
+Route::get('/register', [CrudUserController::class, 'create'])->name('register');
+
+// Trỏ POST /register vào hàm store() để lưu user vào database
+Route::post('/register', [CrudUserController::class, 'store']);
+
+// ==========================================
+// 4. QUẢN LÝ USER (CRUD)
+// ==========================================
+// Route::resource sẽ tự động tạo các route: users.index, users.edit, users.update, users.destroy
+// Ta dùng except(['create', 'store']) vì 2 chức năng này đã gán cho /register ở trên
+Route::resource('users', CrudUserController::class)->except(['create', 'store']);
 Route::get('/', function () {
     return view('welcome');
 });
