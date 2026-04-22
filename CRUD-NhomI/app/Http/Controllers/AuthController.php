@@ -15,8 +15,8 @@ class AuthController extends Controller
 
         // Thực hiện xác thực
         if (Auth::attempt($credentials, $remember)) {
-            // Đăng nhập thành công, chuyển hướng về trang danh sách User
-            return redirect()->route('users.list'); 
+            // Chuyển về route chuẩn của resource
+            return redirect()->route('users.index');
         }
 
         // Đăng nhập thất bại, quay lại kèm thông báo lỗi
