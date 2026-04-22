@@ -56,7 +56,11 @@
                                 <td>
                                     <a href="{{ route('users.edit', $user->id) }}">Edit</a> |
                                     <a href="{{ route('users.show', $user->id) }}">View</a> |
-                                    <button>Delete</button>
+                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Bạn có chắc chắn muốn xóa user này không?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" style="background:none; border:none; color:-webkit-link; color:blue; padding:0; cursor:pointer; font:inherit; text-decoration:underline;">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
