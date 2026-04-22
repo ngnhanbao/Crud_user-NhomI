@@ -5,6 +5,19 @@
     <title>Xem chi tiết - Lập trình web</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+<style>
+    button {
+    background: #1877f2;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+}    
+</style>
+
 </head>
 <body>
     <div class="container">
