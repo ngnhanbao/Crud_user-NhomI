@@ -54,7 +54,7 @@
                                 <td>{{ $user->username }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
-                                    <a href="#">Edit</a> |
+                                    <a href="{{ route('users.edit', $user->id) }}">Edit</a> |
                                     <a href="#">View</a> |
                                     <button>Delete</button>
                                 </td>
