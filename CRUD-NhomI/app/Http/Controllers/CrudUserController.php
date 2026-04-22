@@ -43,6 +43,12 @@ class CrudUserController extends Controller
         return view('edit', compact('user'));
     }
 
+    // Hiển thị chi tiết User (Show)
+    public function show($id) {
+        $user = User::findOrFail($id); 
+        return view('View', compact('user'));
+    }
+
     // 5. Cập nhật dữ liệu (Update)
     public function update(Request $request, $id) {
         $user = User::findOrFail($id);
