@@ -39,7 +39,7 @@ class CrudUserController extends Controller
 
     // 4. Hiển thị form Sửa (Edit)
     public function edit($id) {
-        $user = User::findOrFail($id); // Tìm user, nếu không thấy sẽ báo lỗi 404
+        $user = User::findOrFail($id); 
         return view('edit', compact('user'));
     }
 
