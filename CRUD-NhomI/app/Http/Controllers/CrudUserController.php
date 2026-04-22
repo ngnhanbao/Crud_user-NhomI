@@ -50,12 +50,19 @@ class CrudUserController extends Controller
         $request->validate([
             'username' => 'required|unique:users,username,'.$id,
             'email' => 'required|email|unique:users,email,'.$id,
+            'password' => 'nullable|min:6|confirmed',
         ]);
 
-        $user->update([
+        $data = [
             'username' => $request->username,
             'email' => $request->email,
-        ]);
+        ];
+
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->password);
+        }
+
+        $user->update($data);
 
         return redirect()->route('users.index')->with('success', 'Cập nhật thành công!');
     }
