@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 class CrudUserController extends Controller
 {
     // 1. Hiển thị danh sách User (Trang Index)
-   public function list() {
+   public function index() {
     $users = User::all();
     return view('list', compact('users'));
 }
@@ -34,7 +34,7 @@ class CrudUserController extends Controller
             'password' => Hash::make($request->password), // Mã hóa mật khẩu
         ]);
 
-        return redirect()->route('users.list')->with('success', 'Thêm thành viên thành công!');
+        return redirect()->route('users.index')->with('success', 'Thêm thành viên thành công!');
     }
 
     // 4. Hiển thị form Sửa (Edit)
@@ -57,7 +57,7 @@ class CrudUserController extends Controller
             'email' => $request->email,
         ]);
 
-        return redirect()->route('users.list')->with('success', 'Cập nhật thành công!');
+        return redirect()->route('users.index')->with('success', 'Cập nhật thành công!');
     }
 
     // 6. Xóa User (Delete)
@@ -65,6 +65,6 @@ class CrudUserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('users.list')->with('success', 'Đã xóa thành viên!');
+        return redirect()->route('users.index')->with('success', 'Đã xóa thành viên!');
     }
 }

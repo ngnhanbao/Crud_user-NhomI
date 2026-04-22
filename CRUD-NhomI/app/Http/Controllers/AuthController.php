@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth; // Thêm dòng này
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
@@ -15,8 +15,8 @@ class AuthController extends Controller
 
         // Thực hiện xác thực
         if (Auth::attempt($credentials, $remember)) {
-            // Đăng nhập thành công, chuyển hướng về trang chủ
-            return redirect()->intended('/'); 
+            // Chuyển về route chuẩn của resource
+            return redirect()->route('users.index');
         }
 
         // Đăng nhập thất bại, quay lại kèm thông báo lỗi
