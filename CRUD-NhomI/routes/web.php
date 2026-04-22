@@ -39,6 +39,8 @@ Route::post('/register', [CrudUserController::class, 'store']);
 // Route::resource sẽ tự động tạo các route: users.index, users.edit, users.update, users.destroy
 // Ta dùng except(['create', 'store']) vì 2 chức năng này đã gán cho /register ở trên
 Route::resource('users', CrudUserController::class)->except(['create', 'store']);
+// Danh sách người dùng
+Route::get('list', [CrudUserController::class, 'list'])->name('users.list');
 Route::get('/', function () {
     return view('welcome');
 });
