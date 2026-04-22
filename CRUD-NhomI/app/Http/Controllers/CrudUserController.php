@@ -34,7 +34,7 @@ class CrudUserController extends Controller
             'password' => Hash::make($request->password), // Mã hóa mật khẩu
         ]);
 
-        return redirect()->route('users.index')->with('success', 'Thêm thành viên thành công!');
+       return redirect()->route('login')->with('success', 'Đăng ký thành công! Vui lòng đăng nhập.');
     }
 
     // 4. Hiển thị form Sửa (Edit)
