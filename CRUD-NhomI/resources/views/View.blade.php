@@ -4,13 +4,7 @@
     <meta charset="UTF-8">
     <title>Xem chi tiết - Lập trình web</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <style>
-        .form-box {
-            width: 100%;
-            max-width: 900px;
-            margin: auto;
-        }
-    </style>
+
 </head>
 <body>
     <div class="container">
